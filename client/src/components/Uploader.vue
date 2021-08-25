@@ -83,10 +83,10 @@ export default {
           description: this.description,
           tags: this.tags,
         },
-        headers: {
-          "Content-Type": "multipart/form-data",
-          "Access-Control-Allow-Origin": "*",
-        },
+        // headers: {
+        //   "Content-Type": "multipart/form-data",
+        //   "Access-Control-Allow-Origin": "*",
+        // },
       }).then((e) => {
         console.log("e :>> ", e);
         router.push("/#/");
