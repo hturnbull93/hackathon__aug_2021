@@ -17,28 +17,28 @@
         <li class="menu__dropdown__listitem">
           <a
             class="menu-button menu-button--blue"
-            href="/upload/"
+            href="/#/upload/"
             title="Upload a new image"
           >
             Upload image
           </a>
         </li>
         <li class="menu__dropdown__listitem menu__dropdown__listitem--spaced">
-          <a class="menu-button" href="/search/" title="Search images">
+          <a class="menu-button" href="/#/search/" title="Search images">
             Search
           </a>
         </li>
         <li class="menu__dropdown__listitem menu__dropdown__listitem--border">
           <a
             class="menu-button"
-            :href="`/search/${user}/`"
+            :href="`/#/search/${user}/`"
             title="View your images"
           >
             Your images
           </a>
         </li>
         <li class="menu__dropdown__listitem menu__dropdown__listitem--border">
-          <a class="menu-button" href="/logout/" title="Log out">Log out</a>
+          <a class="menu-button" href="/#/logout/" title="Log out">Log out</a>
         </li>
       </ul>
     </nav>
