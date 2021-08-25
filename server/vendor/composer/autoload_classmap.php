@@ -7,4 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
+    'TeamSix\\Helper\\Generator\\FilenameGenerator' => $baseDir . '/TeamSix/Helper/Generator/FilenameGenerator.php',
+    'TeamSix\\Helper\\Response' => $baseDir . '/TeamSix/Helper/Response.php',
 );

@@ -1,11 +1,15 @@
-FROM trafex/alpine-nginx-php7
+FROM trafex/php-nginx
 
 USER root
+
+RUN apk add --no-cache php8-gd
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-RUN echo "user = nobody" >> /etc/php7/php-fpm.conf
+RUN echo "user = nobody" >> /etc/php8/php-fpm.conf
+
+RUN sed -i 's/8080/81/g' /etc/nginx/nginx.conf
 
 CMD composer dumpautoload -o --no-interaction \
 && /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf -u root

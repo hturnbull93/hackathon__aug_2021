@@ -2,9 +2,7 @@
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
-use iTechTeamSix\Helper\Response; 
+use TeamSix\Helper\Generator\FilenameGenerator;
 
-$sampleResponse = ['name' => 'Bond'];
-
-Response::retrieveFormattedResponse($sampleResponse); 
+echo FilenameGenerator::generateNewFilename('.png'); 
 exit; 
