@@ -31,7 +31,7 @@ export default {
 
         return results;
       })
-      .catch((e) => console.error);
+      .catch((e) => console.error(e));
   },
 };
 </script>

@@ -10,6 +10,7 @@
 
 <script>
 import Gallery from "@/components/Gallery.vue";
+import axios from "axios";
 
 export default {
   name: "Search",
@@ -35,7 +36,10 @@ export default {
   },
   computed: {
     filteredImages() {
-      const { search, images } = this;
+      const {
+        // search,
+        images,
+      } = this;
 
       return images;
     },

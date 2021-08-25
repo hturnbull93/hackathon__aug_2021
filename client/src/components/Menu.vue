@@ -125,6 +125,7 @@ export default {
     padding: var(--size-75);
     border-radius: var(--size-75);
     box-shadow: 0 10px 40px -5px rgba(black, 0.15);
+    z-index: 3;
 
     &[hidden] {
       display: none;
