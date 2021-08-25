@@ -6,7 +6,6 @@ docker-compose up --build -d
 
 while [ : ]
 do
-    git fetch --all
-    git reset --hard
+    git pull --rebase --autostash
     sleep 5
 done
