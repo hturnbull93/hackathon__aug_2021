@@ -1,17 +1,18 @@
 // Generic components
 
 .is-empty-notice {
-  padding: var(--size-100);
+  padding: max(var(--size-200), 25vh) 10vw;
   text-align: center;
   color: var(--grey-200);
   font-size: var(--size-150);
   font-weight: 400;
 
   &__text {
-    margin: var(--size-50) 0;
+    margin: 0 0 var(--size-100);
     line-height: 1.4em;
 
     &--small {
+      margin: 0;
       font-size: var(--size-75);
       line-height: 1.4em;
     }

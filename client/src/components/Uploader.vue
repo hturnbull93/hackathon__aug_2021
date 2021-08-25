@@ -89,7 +89,7 @@ export default {
         // },
       }).then(e => {
         console.log("e :>> ", e);
-        router.push("/#/");
+        router.push("/");
       });
     }
   }

@@ -1,47 +1,53 @@
 <template>
   <section class="page page--search">
-    <form class="search">
-      <input type="search" placeholder="Search" />
+    <form class="search" @submit.prevent="searchImages">
+      <input type="search" placeholder="Search" ref="searchInput" />
       <button>Search</button>
     </form>
-    <Gallery :images="images" />
+    <Gallery :images="filteredImages" />
   </section>
 </template>
 
 <script>
 import Gallery from "@/components/Gallery.vue";
-import axios from "axios";
+import { mapState } from "vuex";
 
 export default {
   name: "Search",
   components: {
     Gallery
   },
-  data() {
-    return {
-      images: [],
-      search: "",
-      loading: true
-    };
-  },
-  mounted() {
-    this.images = axios
-      .get("/api/data/")
-      .then(e => e.json())
-      .then(results => {
-        this.loading = false;
-
-        return results;
-      });
-  },
   computed: {
+    ...mapState({
+      images: state => state.images,
+      loading: state => state.loading
+    }),
     filteredImages() {
-      const {
-        // search,
-        images
-      } = this;
+      const { images } = this;
+      const { search } = this.$route.params;
 
-      return images;
+      console.log("Search by", search);
+
+      // If no search params, return all images
+      if (!search) return images;
+
+      // Else filter
+      return images.filter(img => {
+        // Perform filter here
+
+        return img;
+      });
+    }
+  },
+  methods: {
+    searchImages() {
+      const { searchInput } = this.$refs;
+
+      // Get value from search input
+      const query = searchInput.value;
+
+      // Update URL
+      this.$router.push(`/search/${query}`);
     }
   }
 };

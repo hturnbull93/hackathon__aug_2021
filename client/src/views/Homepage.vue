@@ -15,7 +15,6 @@ export default {
   },
   computed: mapState({
     images: state => state.images,
-    tags: state => state.tags,
     loading: state => state.loading
   })
 };
