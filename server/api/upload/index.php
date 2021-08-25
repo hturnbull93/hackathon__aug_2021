@@ -34,18 +34,28 @@ $response = [
 
 $filename = FilenameGenerator::generateNewFilename(); 
 
-$fileContents = file_get_contents($_FILES['file']['tmp_name']);
-$image = imagecreatefromstring($fileContents);
+// Process it for security
+$image = imagecreatefromstring(base64_decode($_REQUEST['file']));
+
+var_dump($_REQUEST);
+die();
 
 if ($image) {
     //storing image
-    move_uploaded_file($_FILES['file']['tmp_name'], "../data/" . $filename);
+    //move_uploaded_file($_FILES['file']['tmp_name'], "../data/" . $filename);
+    file_put_contents("../data" . $filename, $_REQUEST['file']);
 
     //storing metadata for image 
     file_put_contents("../data/" . $filename . ".json", json_encode($_REQUEST));
 } else {
-    $respons['success'] = false;
+    $response['success'] = false;
 }
+
+/* 
+Index code
+*/
+
+
 
 Response::sendFormattedResponse($response); 
 exit; 
