@@ -1,7 +1,7 @@
 <template>
   <main class="app">
     <header class="app__header">
-      <a href="/" title="Back to homepage">
+      <a href="/#/" title="Back to homepage">
         <img
           class="app__logo"
           src="@/assets/images/logo.svg"
