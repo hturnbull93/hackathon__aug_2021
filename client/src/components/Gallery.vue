@@ -1,9 +1,14 @@
 <template>
-  <section class="image-gallery">
-    <a
+  <section v-if="!images.length" class="is-empty-notice">
+    <p class="is-empty-notice__text">No images exist here yet :(</p>
+    <p class="is-empty-notice__text is-empty-notice__text--small">P.S. why don't you <router-link to="/upload/" title="Upload image">upload the first</router-link>?</p>
+  </section>
+  
+  <section v-else class="image-gallery">
+    <router-link
       v-for="image of imagesGallery"
       :key="image.url"
-      :href="image.url"
+      :to="image.url"
       class="image-gallery__link"
     >
       <img
@@ -13,10 +18,11 @@
         width="200"
         height="200"
       />
-    </a>
+    </router-link>
   </section>
 
   <Pagination
+    v-if="pageCount > 1"
     :current="currentPage"
     :max="pageCount"
     @previous-page="previousPage"
@@ -26,17 +32,18 @@
 
 <script>
 import Pagination from "@/components/Pagination.vue";
+import truncateString from "@/assets/scripts/truncate-string.js";
 
 export default {
   pageSize: 12,
   props: ["images"],
   data() {
     return {
-      currentPage: 0,
+      currentPage: 0
     };
   },
   components: {
-    Pagination,
+    Pagination
   },
   computed: {
     imageCount() {
@@ -46,7 +53,7 @@ export default {
       const { images } = this;
       const { pageSize } = this.$options;
 
-      return Math.floor((images.length - 1) / pageSize);
+      return images.length > 1 ? Math.floor(images.length - 1 / pageSize) : 0;
     },
     imagesGallery() {
       const { images, currentPage } = this;
@@ -57,17 +64,13 @@ export default {
 
       // Return mapped images
       return images
-        .map((img) => ({
-          url: img.url,
+        .map(img => ({
+          url: `/view-image/${img.imageId}/`,
           src: img.src,
-          alt:
-            img.description &&
-            img.description.substring(0, 100) + img.description.length > 100
-              ? "..."
-              : "",
+          alt: truncateString(img.alt, 35)
         }))
         .splice(startImage, pageSize);
-    },
+    }
   },
   methods: {
     previousPage() {
@@ -90,8 +93,8 @@ export default {
     },
     scrollUp() {
       window.scrollTo(0, 0);
-    },
-  },
+    }
+  }
 };
 </script>
 

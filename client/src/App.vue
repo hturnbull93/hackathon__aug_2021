@@ -1,13 +1,13 @@
 <template>
   <main class="app">
     <header class="app__header">
-      <a href="/#/" title="Back to homepage">
+      <router-link to="/" title="Back to homepage">
         <img
           class="app__logo"
           src="@/assets/images/logo.svg"
           alt="Intechgram logo"
         />
-      </a>
+      </router-link>
 
       <Menu />
     </header>

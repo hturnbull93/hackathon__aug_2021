@@ -18,6 +18,15 @@ const routes = [
     component: () => import("@/views/Edit.vue")
   },
   {
+    path: "/view-image/",
+    redirect: "/"
+  },
+  {
+    path: "/view-image/:image",
+    name: "View Image",
+    component: () => import("@/views/ViewImage.vue")
+  },
+  {
     path: "/search",
     name: "Search",
     component: () => import("@/views/Search.vue")

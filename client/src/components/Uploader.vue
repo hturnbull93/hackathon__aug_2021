@@ -18,7 +18,7 @@
 <script>
 import axios from "axios";
 import router from "../router";
-const caculateDimensions = (img) => {
+const caculateDimensions = img => {
   const MAX_WIDTH = img.width > img.height ? 1280 : 720;
   const MAX_HEIGHT = img.width > img.height ? 720 : 1280;
 
@@ -46,14 +46,14 @@ export default {
       previewImage: null,
       resizedImage: null,
       description: "",
-      tags: "",
+      tags: ""
     };
   },
   methods: {
     uploadImage(e) {
       const imageFile = e.target.files[0];
       const reader = new FileReader();
-      reader.onload = (readEvent) => {
+      reader.onload = readEvent => {
         const img = document.createElement("img");
         img.onload = () => {
           const canvas = document.createElement("canvas");
@@ -81,18 +81,18 @@ export default {
         data: {
           file: this.resizedImage,
           description: this.description,
-          tags: this.tags,
-        },
+          tags: this.tags
+        }
         // headers: {
         //   "Content-Type": "multipart/form-data",
         //   "Access-Control-Allow-Origin": "*",
         // },
-      }).then((e) => {
+      }).then(e => {
         console.log("e :>> ", e);
         router.push("/#/");
       });
-    },
-  },
+    }
+  }
 };
 </script>
 

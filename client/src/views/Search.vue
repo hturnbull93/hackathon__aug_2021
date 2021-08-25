@@ -15,20 +15,20 @@ import axios from "axios";
 export default {
   name: "Search",
   components: {
-    Gallery,
+    Gallery
   },
   data() {
     return {
       images: [],
       search: "",
-      loading: true,
+      loading: true
     };
   },
   mounted() {
     this.images = axios
-      .get(":8081/api/data/")
-      .then((e) => e.json())
-      .then((results) => {
+      .get("/api/data/")
+      .then(e => e.json())
+      .then(results => {
         this.loading = false;
 
         return results;
@@ -38,12 +38,12 @@ export default {
     filteredImages() {
       const {
         // search,
-        images,
+        images
       } = this;
 
       return images;
-    },
-  },
+    }
+  }
 };
 </script>
 

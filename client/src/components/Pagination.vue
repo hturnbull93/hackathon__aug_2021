@@ -33,8 +33,8 @@ export default {
       const { max, current } = this;
 
       this.$emit("next-page", Math.min(current + 1, max - 1));
-    },
-  },
+    }
+  }
 };
 </script>
 

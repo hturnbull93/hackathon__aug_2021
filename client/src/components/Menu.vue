@@ -15,30 +15,35 @@
     <nav class="menu__dropdown" :hidden="hidden">
       <ul class="menu__dropdown__list">
         <li class="menu__dropdown__listitem">
-          <a
+          <router-link
             class="menu-button menu-button--blue"
-            href="/#/upload/"
+            to="/upload/"
             title="Upload a new image"
           >
             Upload image
-          </a>
+          </router-link>
         </li>
         <li class="menu__dropdown__listitem menu__dropdown__listitem--spaced">
-          <a class="menu-button" href="/#/search/" title="Search images">
+          <router-link class="menu-button" to="/search/" title="Search images">
             Search
-          </a>
+          </router-link>
         </li>
         <li class="menu__dropdown__listitem menu__dropdown__listitem--border">
-          <a
+          <router-link
             class="menu-button"
-            :href="`/#/search/${user}/`"
+            :to="`/search/${user}/`"
             title="View your images"
           >
             Your images
-          </a>
+          </router-link>
         </li>
         <li class="menu__dropdown__listitem menu__dropdown__listitem--border">
-          <a class="menu-button" href="/#/logout/" title="Log out">Log out</a>
+          <router-link class="menu-button" to="/search/" title="Search images">
+            Favourites
+          </router-link>
+        </li>
+        <li class="menu__dropdown__listitem menu__dropdown__listitem--border">
+          <router-link class="menu-button" to="/logout/" title="Log out">Log out</router-link>
         </li>
       </ul>
     </nav>
@@ -51,7 +56,7 @@ export default {
   props: ["loggedin", "user"],
   data() {
     return {
-      hidden: true,
+      hidden: true
     };
   },
   methods: {
@@ -66,14 +71,14 @@ export default {
 
       // If not clicked inside, close
       if (!clickedInside) this.hidden = true;
-    },
+    }
   },
   mounted() {
     window.addEventListener("click", this.closeMenuOnClickOutside);
   },
   beforeUnmount() {
     window.removeEventListener("click", this.closeMenuOnClickOutside);
-  },
+  }
 };
 </script>
 
@@ -89,6 +94,7 @@ export default {
     margin: 0;
     position: relative;
     border: 0;
+    cursor: pointer;
 
     &__row {
       position: absolute;
@@ -118,14 +124,27 @@ export default {
 
   &__dropdown {
     position: absolute;
-    top: 100%;
+    top: calc(100% + var(--size-50));
     right: 0;
     width: fit-content;
     background: var(--white-100);
-    padding: var(--size-75);
+    padding: var(--size-75) var(--size-75) var(--size-25);
     border-radius: var(--size-75);
     box-shadow: 0 10px 40px -5px rgba(black, 0.15);
     z-index: 3;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: var(--white-100);
+      border-top-left-radius: 2px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: rotate(45deg) translate(-16px, 8px);
+    }
 
     &[hidden] {
       display: none;
@@ -154,17 +173,29 @@ export default {
   line-height: 1.2em;
   white-space: nowrap;
   text-decoration: none;
-  padding: var(--size-50);
+  padding: var(--size-50) var(--size-100);
   font-size: 0.9em;
   font-weight: 400;
   color: var(--grey-500);
   cursor: pointer;
+  min-width: 140px;
+  transition: background-color 0.15s;
+
+  &:hover {
+    color: var(--grey-500);
+    text-decoration: none;
+  }
 
   &--blue {
     background: var(--primary-100);
     color: var(--white-100);
     border-radius: var(--size-50);
     padding: var(--size-75) var(--size-100);
+
+    &:hover {
+      background: var(--primary-200);
+      color: var(--white-100);
+    }
   }
 }
 </style>

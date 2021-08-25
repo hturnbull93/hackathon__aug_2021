@@ -1,6 +1,6 @@
 <template>
   <section class="page page--homepage">
-    <Gallery :loading="loading" :images="mockImages" />
+    <Gallery :loading="loading" :images="images" />
   </section>
 </template>
 
@@ -8,30 +8,27 @@
 import Gallery from "@/components/Gallery.vue";
 import axios from "axios";
 
-import mockImages from "@/assets/mock/images.js";
-
 export default {
   name: "Homepage",
   components: {
-    Gallery,
+    Gallery
   },
   data() {
     return {
-      mockImages,
       images: [],
-      loading: true,
+      loading: true
     };
   },
   mounted() {
-    this.images = axios
-      .get(":8081/api/data/")
-      .then((e) => e.json())
-      .then((results) => {
+    axios
+      .get("/api/data/")
+      .then(({ data }) => data.result)
+      .then(({ images = [] }) => {
         this.loading = false;
 
-        return results;
+        this.images = images;
       })
-      .catch((e) => console.error(e));
-  },
+      .catch(e => console.error(e));
+  }
 };
 </script>
