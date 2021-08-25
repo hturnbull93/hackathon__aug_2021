@@ -11,5 +11,10 @@ class Response
         exit; 
     }
 
+    public static function generateNewFilename(string $extension): string
+    {
+        $timestamp = microtime(); 
 
+        return md5($timestamp) . $extension; 
+    }
 }
