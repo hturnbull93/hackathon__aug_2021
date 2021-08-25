@@ -63,7 +63,7 @@ export default {
     color: var(--grey-600);
     transition: color 0.15s;
     background: var(--grey-100);
-    border-radius: var(--size-25);
+    border-radius: var(--size-50);
 
     &:hover {
       color: var(--primary-100);

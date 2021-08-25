@@ -9,13 +9,7 @@
         />
       </a>
 
-      <button class="app__menu-toggle">
-        <div role="img" alt="Burger icon">
-          <span class="app__menu-toggle__row app__menu-toggle__row--1"></span>
-          <span class="app__menu-toggle__row app__menu-toggle__row--2"></span>
-          <span class="app__menu-toggle__row app__menu-toggle__row--3"></span>
-        </div>
-      </button>
+      <Menu />
     </header>
 
     <router-view />
@@ -23,8 +17,13 @@
 </template>
 
 <script>
+import Menu from "@/components/Menu.vue";
+
 export default {
   name: "App",
+  components: {
+    Menu,
+  },
 };
 </script>
 
@@ -48,41 +47,6 @@ export default {
     width: var(--size-200);
     height: auto;
     margin: 0;
-  }
-
-  &__menu-toggle {
-    width: 40px;
-    height: 40px;
-    padding: 0;
-    background: transparent;
-    margin: 0;
-    position: relative;
-    border: 0;
-
-    &__row {
-      position: absolute;
-      left: 8px;
-      width: 24px;
-      height: 3px;
-      background: var(--grey-400);
-      border-radius: 2px;
-
-      &--1 {
-        top: calc(50% - 10px);
-      }
-
-      &--2 {
-        top: calc(50% - 1px);
-        width: 18px;
-        left: 14px;
-      }
-
-      &--3 {
-        top: calc(50% + 8px);
-        width: 14px;
-        left: 10px;
-      }
-    }
   }
 }
 </style>
