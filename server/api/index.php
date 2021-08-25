@@ -1,15 +1,12 @@
 <?php
 
-require_once '../vendor/autoload.php'; 
+require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
+use TeamSix\Helper\Response;
 
-use TeamSix\Generator\ImageFilenameGenerator;
-
-echo ImageFilenameGenerator::generateNewFilename('.png'); 
+echo Response::generateNewFilename('.png'); 
 exit; 
 
-
-use TeamSix\Helper\Response; 
 
 $sampleResponse = ['name' => 'Bond'];
 
