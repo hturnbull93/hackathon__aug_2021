@@ -1,7 +1,7 @@
 <template>
   <div class="uploader">
     <img :src="previewImage" class="uploading-image" />
-    <input type="file" accept="image/*" @change="uploadImage" />
+    <input type="file" name="file" accept="image/*" @change="uploadImage" />
     <label for="description"> Description </label>
     <input
       v-model="description"
@@ -16,6 +16,8 @@
 </template>
 
 <script>
+import axios from "axios";
+import router from "../router";
 const caculateDimensions = (img) => {
   const MAX_WIDTH = img.width > img.height ? 1280 : 720;
   const MAX_HEIGHT = img.width > img.height ? 720 : 1280;
@@ -77,7 +79,35 @@ export default {
       console.log("this.description :>> ", this.description);
       console.log("this.tags :>> ", this.tags);
       console.log("this.resizedImage :>> ", this.resizedImage);
-      // do thing
+
+      // const formData = new FormData();
+      // formData.append("file", this.resizedImage);
+      // formData.append("description", this.description);
+      // formData.append("tags", this.tags);
+
+      // axios
+      //   .post("/upload", formData, {
+      //     headers: { "Content-Type": "multipart/form-data" },
+      //   })
+      //   .then((e) => {
+      //     console.log(e);
+      //   });
+
+      axios({
+        method: "post",
+        url: "/api/upload",
+        data: {
+          file: this.resizedImage,
+          description: this.description,
+          tags: this.tags,
+        },
+        headers: { "Content-Type": "multipart/form-data" },
+      }).then((e) => {
+        //
+        router.push("/");
+
+        console.log("e :>> ", e);
+      });
     },
   },
 };
