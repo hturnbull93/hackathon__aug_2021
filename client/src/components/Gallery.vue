@@ -53,7 +53,7 @@ export default {
       const { images } = this;
       const { pageSize } = this.$options;
 
-      return images.length > 1 ? Math.floor(images.length - 1 / pageSize) : 0;
+      return images.length > 1 ? Math.floor((images.length - 1) / pageSize) : 0;
     },
     imagesGallery() {
       const { images, currentPage } = this;

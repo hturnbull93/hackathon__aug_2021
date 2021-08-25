@@ -8,6 +8,8 @@
 import Gallery from "@/components/Gallery.vue";
 import axios from "axios";
 
+import mockImages from "@/assets/mock/images.js";
+
 export default {
   name: "Homepage",
   components: {
@@ -26,9 +28,17 @@ export default {
       .then(({ images = [] }) => {
         this.loading = false;
 
-        this.images = images;
+        // this.images = images;
+        console.log(mockImages);
+        console.log(images);
+
+        this.images = mockImages;
       })
-      .catch(e => console.error(e));
+      .catch(e => {
+        this.images = mockImages;
+
+        console.error(e);
+      });
   }
 };
 </script>
