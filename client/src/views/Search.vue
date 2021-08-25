@@ -1,6 +1,10 @@
 <template>
-  <section class="page page--homepage">
-    <Gallery :images="mockImageSearched" />
+  <section class="page page--search">
+    <form>
+      <input type="search" placeholder="Search" />
+      <button>Search</button>
+    </form>
+    <Gallery :images="mockImages" />
   </section>
 </template>
 
@@ -10,7 +14,7 @@ import Gallery from "@/components/Gallery.vue";
 import mockImages from "@/assets/mock/images.js";
 
 export default {
-  name: "Homepage",
+  name: "Search",
   components: {
     Gallery,
   },
@@ -18,11 +22,6 @@ export default {
     return {
       mockImages,
     };
-  },
-  computed: {
-    mockImageSearched() {
-      return this.mockImages.filter(() => true);
-    },
   },
 };
 </script>

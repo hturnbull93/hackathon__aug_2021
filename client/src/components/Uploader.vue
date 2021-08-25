@@ -52,7 +52,6 @@ export default {
   methods: {
     uploadImage(e) {
       const imageFile = e.target.files[0];
-      console.log("imageFile :>> ", imageFile);
       const reader = new FileReader();
       reader.onload = (readEvent) => {
         const img = document.createElement("img");
@@ -76,37 +75,21 @@ export default {
       reader.readAsDataURL(imageFile);
     },
     submit() {
-      console.log("this.description :>> ", this.description);
-      console.log("this.tags :>> ", this.tags);
-      console.log("this.resizedImage :>> ", this.resizedImage);
-
-      // const formData = new FormData();
-      // formData.append("file", this.resizedImage);
-      // formData.append("description", this.description);
-      // formData.append("tags", this.tags);
-
-      // axios
-      //   .post("/upload", formData, {
-      //     headers: { "Content-Type": "multipart/form-data" },
-      //   })
-      //   .then((e) => {
-      //     console.log(e);
-      //   });
-
       axios({
         method: "post",
-        url: "/api/upload",
+        url: "/api/upload/",
         data: {
           file: this.resizedImage,
           description: this.description,
           tags: this.tags,
         },
-        headers: { "Content-Type": "multipart/form-data" },
+        headers: {
+          "Content-Type": "multipart/form-data",
+          "Access-Control-Allow-Origin": "*",
+        },
       }).then((e) => {
-        //
-        router.push("/");
-
         console.log("e :>> ", e);
+        router.push("/#/");
       });
     },
   },

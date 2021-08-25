@@ -53,6 +53,18 @@ const routes = [
         });
       }
     }
+  },
+  {
+    path: "/logout",
+    name: "Log in",
+    component: () => import("@/views/Login.vue"),
+    beforeEnter() {
+      /**
+       *  @todo
+       *  Add logout script
+       *
+       */
+    }
   }
 ];
 
