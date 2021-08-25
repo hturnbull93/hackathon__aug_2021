@@ -10,7 +10,6 @@
   "dependencies": {
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
-    "dropzone-vue": "^0.1.8",
     "sass": "^1.38.1",
     "sass-loader": "^10.2.0",
     "vue": "^3.0.0",
