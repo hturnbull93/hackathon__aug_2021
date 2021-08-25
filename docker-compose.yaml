@@ -6,6 +6,7 @@ services:
       dockerfile: Dockerfile.server
     volumes:
       - ./server:/var/www/html:Z
+      - ./data:/var/www/html/data:Z
     tmpfs:
       - /tmp
     ports:
