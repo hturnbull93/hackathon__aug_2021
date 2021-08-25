@@ -4,10 +4,10 @@ namespace TeamSix\Helper\Generator;
 
 class FilenameGenerator
 {
-    public static function generateNewFilename(string $extension): string
+    public static function generateNewFilename(): string
     {
         $timestamp = microtime(); 
 
-        return md5($timestamp) . $extension; 
+        return md5($timestamp); 
     }
 }
