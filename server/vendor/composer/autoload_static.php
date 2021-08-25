@@ -7,21 +7,22 @@ namespace Composer\Autoload;
 class ComposerStaticInit5d3e8fb5f2b4396fb50cd8628573aeca
 {
     public static $prefixLengthsPsr4 = array (
-        'i' => 
+        'T' => 
         array (
-            'iTechTeam6\\' => 11,
+            'TeamSix\\' => 8,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'iTechTeam6\\' => 
+        'TeamSix\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/iTechTeam6',
+            0 => __DIR__ . '/../..' . '/TeamSix',
         ),
     );
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'TeamSix\\Helper\\Response' => __DIR__ . '/../..' . '/TeamSix/Helper/Response.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

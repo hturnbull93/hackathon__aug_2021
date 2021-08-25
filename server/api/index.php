@@ -2,7 +2,7 @@
 
 require_once '../vendor/autoload.php'; 
 
-use iTechTeam6\Helper\Response; 
+use TeamSix\Helper\Response; 
 
 $sampleResponse = ['name' => 'Bond'];
 

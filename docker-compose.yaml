@@ -9,7 +9,7 @@ services:
     tmpfs:
       - /tmp
     ports:
-      - '81:8080'
+      - '81:81'
     env_file: .env
   client:
     build: 
