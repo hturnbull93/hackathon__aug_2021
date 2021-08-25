@@ -1,8 +1,8 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
+require_once '../vendor/autoload.php'; 
 
-use iTechTeamSix\Helper\Response; 
+use iTechTeam6\Helper\Response; 
 
 $sampleResponse = ['name' => 'Bond'];
 
