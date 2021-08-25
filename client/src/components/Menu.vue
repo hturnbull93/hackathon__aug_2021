@@ -20,10 +20,16 @@
             to="/upload/"
             title="Upload a new image"
           >
+            <img src="@/assets/images/img.svg" alt="Image icon" class="menu-button__icon" />
             Upload image
           </router-link>
         </li>
         <li class="menu__dropdown__listitem menu__dropdown__listitem--spaced">
+          <router-link class="menu-button" to="/" title="Back to homepage">
+            Home
+          </router-link>
+        </li>
+        <li class="menu__dropdown__listitem menu__dropdown__listitem--border">
           <router-link class="menu-button" to="/search/" title="Search images">
             Search
           </router-link>
@@ -78,6 +84,11 @@ export default {
   },
   beforeUnmount() {
     window.removeEventListener("click", this.closeMenuOnClickOutside);
+  },
+  watch: {
+    $route() {
+      if (!this.hidden) this.hidden = true;
+    }
   }
 };
 </script>
@@ -178,8 +189,15 @@ export default {
   font-weight: 400;
   color: var(--grey-500);
   cursor: pointer;
-  min-width: 140px;
+  min-width: 160px;
   transition: background-color 0.15s;
+
+  &__icon {
+    display: block;
+    width: var(--size-100);
+    height: auto;
+    margin: 0 var(--size-50) 0 0;
+  }
 
   &:hover {
     color: var(--grey-500);
@@ -188,13 +206,13 @@ export default {
 
   &--blue {
     background: var(--primary-100);
-    color: var(--white-100);
+    color: white;
     border-radius: var(--size-50);
     padding: var(--size-75) var(--size-100);
 
     &:hover {
       background: var(--primary-200);
-      color: var(--white-100);
+      color: white;
     }
   }
 }
