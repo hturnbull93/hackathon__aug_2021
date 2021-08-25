@@ -23,6 +23,5 @@ $response = [
     'result'  => $data
 ]; 
 
-
 Response::sendFormattedResponse($response); 
 exit; 
