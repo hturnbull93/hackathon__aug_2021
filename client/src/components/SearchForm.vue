@@ -28,7 +28,7 @@ export default {
 <style lang="scss">
 .search {
   position: relative;
-  margin: 0 0 var(--size-75);
+  margin: 0 0 var(--size-100);
 
   &__input {
     font: inherit;
