@@ -1,26 +1,21 @@
 <template>
   <section class="page page--view-image">
-    IMAGE {{image}}
+    <Image :image-id="image" />
   </section>
 </template>
 
 <script>
-import axios from "axios";
+import Image from "@/components/Image.vue";
 
 export default {
   name: "ViewImage",
-  data() {
-    return {
-      image: null
-    };
+  components: {
+    Image
   },
-  mounted() {
+  data() {
     const { image } = this.$route.params;
 
-    this.image = axios
-      .get(`/api/data/image/${image}`)
-      .then(e => e.json())
-      .then(([result]) => result);
+    return { image };
   }
 };
 </script>
