@@ -17,7 +17,7 @@
 
 <script>
 import axios from "axios";
-import router from "../router";
+//import router from "../router";
 const caculateDimensions = img => {
   const MAX_WIDTH = img.width > img.height ? 1280 : 720;
   const MAX_HEIGHT = img.width > img.height ? 720 : 1280;
@@ -75,21 +75,22 @@ export default {
       reader.readAsDataURL(imageFile);
     },
     submit() {
+      const imageData = new FormData();
+
+      imageData.append("file", this.resizedImage);
+      imageData.append("description", this.description);
+      imageData.append("tags", this.tags);
+
       axios({
         method: "post",
         url: "/api/upload/",
-        data: {
-          file: this.resizedImage,
-          description: this.description,
-          tags: this.tags
+        data: imageData,
+        headers: {
+          "Content-Type": "multipart/form-data"
         }
-        // headers: {
-        //   "Content-Type": "multipart/form-data",
-        //   "Access-Control-Allow-Origin": "*",
-        // },
       }).then(e => {
         console.log("e :>> ", e);
-        router.push("/");
+        //router.push("/");
       });
     }
   }
