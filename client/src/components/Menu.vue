@@ -236,6 +236,7 @@ $menu-link-speed: 0.3s cubic-bezier(0, 0.86, 0.46, 0.93);
 
   &.router-link-exact-active {
     color: var(--grey-200);
+    pointer-events: none;
   }
 
   &__icon {
