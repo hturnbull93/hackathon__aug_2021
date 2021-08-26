@@ -35,7 +35,7 @@ export default {
 
 .app {
   padding: var(--size-100);
-  max-width: 600px;
+  max-width: 768px;
   margin: 0 auto;
 
   &__header {

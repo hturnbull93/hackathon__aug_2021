@@ -108,8 +108,12 @@ export default {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  @media (min-width: 500px) {
+  @media (min-width: 550px) {
     grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (min-width: 700px) {
+    grid-template-columns: repeat(5, 1fr);
   }
 
   &__link {
