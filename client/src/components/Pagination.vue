@@ -66,7 +66,8 @@ export default {
     border-radius: var(--size-50);
 
     &:hover {
-      color: var(--primary-100);
+      background: var(--primary-200);
+      color: white;
     }
 
     &[disabled] {

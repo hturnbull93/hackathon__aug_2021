@@ -1,12 +1,12 @@
 // Text and content
 
 a {
-  color: var(--primary-100);
+  color: var(--primary-200);
   font-weight: 500;
   text-decoration: none;
 
   &:hover {
-    color: var(--primary-100);
+    color: var(--primary-200);
     text-decoration: underline;
   }
 }

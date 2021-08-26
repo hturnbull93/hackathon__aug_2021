@@ -21,7 +21,7 @@
             to="/upload/"
             title="Upload a new image"
           >
-            <img src="@/assets/images/img.svg" alt="Image icon" class="menu-button__icon" />
+            <SvgIcon name="img" title="Image icon" class="menu-button__icon" />
             Upload image
           </router-link>
         </li>
@@ -58,9 +58,14 @@
 </template>
 
 <script>
+import SvgIcon from "@/components/SvgIcon.vue";
+
 export default {
   name: "",
   props: ["loggedin", "user"],
+  components: {
+    SvgIcon
+  },
   data() {
     return {
       hidden: true
@@ -236,8 +241,9 @@ $menu-link-speed: 0.3s cubic-bezier(0, 0.86, 0.46, 0.93);
   &__icon {
     display: block;
     width: var(--size-100);
-    height: auto;
+    height: var(--size-100);
     margin: 0 var(--size-50) 0 0;
+    color: var(--primary-100);
   }
 
   &:hover {
@@ -246,15 +252,24 @@ $menu-link-speed: 0.3s cubic-bezier(0, 0.86, 0.46, 0.93);
   }
 
   &--blue {
-    background: var(--primary-100);
+    background: var(--primary-200);
     color: white;
     border-radius: var(--size-50);
     padding: var(--size-75) var(--size-100);
 
     &:hover {
-      background: var(--primary-200);
+      background: var(--primary-300);
       color: white;
     }
+
+    &.router-link-exact-active {
+      background: var(--grey-100);
+      color: var(--grey-300);
+    }
+  }
+
+  &--blue.router-link-exact-active &__icon {
+    color: var(--grey-200);
   }
 }
 </style>
