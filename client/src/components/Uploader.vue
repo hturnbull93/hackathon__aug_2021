@@ -80,6 +80,7 @@ export default {
       imageData.append("file", this.resizedImage);
       imageData.append("description", this.description);
       imageData.append("tags", this.tags);
+      imageData.append("user", "Capt. Uploader");
 
       axios({
         method: "post",

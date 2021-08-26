@@ -9,7 +9,7 @@
     <figure class="image__figure">
       <img :src="image.src" :alt="imageAlt" class="image__src" />
       <figcaption class="image__figcaption">
-        Uploaded by {{ image.uploader || '' }}
+        Uploaded by {{ image.user || '' }}
       </figcaption>
     </figure>
 
@@ -39,7 +39,7 @@ export default {
       const match = this.images.find(img => img.imageId === this.imageId);
 
       // Set image defaults
-      const imageDefaults = { uploader: "Anonymous User" };
+      const imageDefaults = { user: "Anonymous User" };
 
       // Return
       return match && { ...imageDefaults, ...match };

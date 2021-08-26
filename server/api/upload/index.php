@@ -26,6 +26,7 @@ if ($image) {
       'imageId' => $filename,
       'src' => '/api/data/' . $filename . '.jpg',
       'alt' => $_REQUEST['description'],
+      'user' => $_REQUEST['user'],
       'tags' => $_REQUEST['tags'],
     ]));
 } else {
