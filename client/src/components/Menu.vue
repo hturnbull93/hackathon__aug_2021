@@ -2,6 +2,7 @@
   <div class="menu">
     <button
       class="menu__toggle"
+      :class="{ 'menu__toggle--expanded': !hidden }"
       @click.prevent="toggleMenu"
       aria-label="Toggle menu"
     >
@@ -94,6 +95,9 @@ export default {
 </script>
 
 <style lang="scss">
+$menu-burger-speed: 0.15s;
+$menu-link-speed: 0.3s cubic-bezier(0, 0.86, 0.46, 0.93);
+
 .menu {
   position: relative;
 
@@ -114,22 +118,38 @@ export default {
       height: 3px;
       background: var(--grey-400);
       border-radius: 2px;
+      top: 50%;
+      transition: opacity $menu-burger-speed, transform $menu-burger-speed,
+        width $menu-burger-speed;
 
       &--1 {
-        top: calc(50% - 9px);
+        transform: translateY(-9px);
       }
 
       &--2 {
-        top: calc(50% - 1px);
+        transform: translate(8px, -1px);
         width: 16px;
-        left: 16px;
       }
 
       &--3 {
-        top: calc(50% + 7px);
+        transform: translate(2px, 7px);
         width: 12px;
-        left: 10px;
       }
+    }
+
+    &--expanded &__row--1 {
+      transform: rotate(45deg);
+      width: 22px;
+    }
+
+    &--expanded &__row--2 {
+      transform: rotate(-45deg);
+      width: 22px;
+    }
+
+    &--expanded &__row--3 {
+      transform: translate(-20px, 7px);
+      opacity: 0;
     }
   }
 
@@ -143,6 +163,7 @@ export default {
     border-radius: var(--size-75);
     box-shadow: 0 10px 40px -5px rgba(black, 0.15);
     z-index: 3;
+    animation: fadeMenuDown $menu-link-speed;
 
     &::after {
       content: "";
@@ -168,6 +189,15 @@ export default {
     }
 
     &__listitem {
+      animation: fadeMenuDown $menu-link-speed;
+      animation-fill-mode: backwards;
+
+      @for $i from 1 through 7 {
+        &:nth-child(#{$i}) {
+          animation-delay: #{$i * 30}ms;
+        }
+      }
+
       &--border {
         border-top: 1px solid var(--grey-100);
       }
@@ -176,6 +206,13 @@ export default {
         margin-top: var(--size-25);
       }
     }
+  }
+}
+
+@keyframes fadeMenuDown {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
 }
 
@@ -191,6 +228,10 @@ export default {
   cursor: pointer;
   min-width: 160px;
   transition: background-color 0.15s;
+
+  &.router-link-exact-active {
+    color: var(--grey-200);
+  }
 
   &__icon {
     display: block;

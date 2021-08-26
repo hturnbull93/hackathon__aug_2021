@@ -18,3 +18,20 @@
     }
   }
 }
+
+.button {
+  display: flex;
+  font: inherit;
+  line-height: 1.2em;
+  background: var(--primary-100);
+  color: white;
+  border: 0;
+  border-radius: var(--size-50);
+  padding: var(--size-50) var(--size-100);
+
+  &:hover {
+    background: var(--primary-200);
+    color: white;
+    text-decoration: none;
+  }
+}
