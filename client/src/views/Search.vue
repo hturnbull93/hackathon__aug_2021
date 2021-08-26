@@ -1,21 +1,20 @@
 <template>
   <section class="page page--search">
-    <form class="search" @submit.prevent="searchImages">
-      <input type="search" placeholder="Search" ref="searchInput" />
-      <button>Search</button>
-    </form>
+    <SearchForm @search-images="searchImages" /> 
     <Gallery :images="filteredImages" />
   </section>
 </template>
 
 <script>
+import SearchForm from "@/components/SearchForm.vue";
 import Gallery from "@/components/Gallery.vue";
 import { mapState } from "vuex";
 
 export default {
   name: "Search",
   components: {
-    Gallery
+    Gallery,
+    SearchForm
   },
   computed: {
     ...mapState({
@@ -40,22 +39,9 @@ export default {
     }
   },
   methods: {
-    searchImages() {
-      const { searchInput } = this.$refs;
-
-      // Get value from search input
-      const query = searchInput.value;
-
-      // Update URL
+    searchImages(query) {
       this.$router.push(`/search/${query}`);
     }
   }
 };
 </script>
-
-<style lang="scss">
-.search {
-  display: flex;
-  margin: 0 0 var(--size-100);
-}
-</style>
