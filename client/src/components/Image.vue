@@ -17,8 +17,10 @@
     <p class="image__description">{{image.alt}}</p>
 
     <ul class="image__tags">
-      <li class="image__tags__listitem">
-        {{image.tags}}
+      <li v-for="tag of [image.tags]" :key="tag" class="image__tags__listitem">
+        <router-link :to="`/search/${tag}/`" :title="`Show all images tagged ${tag}`">
+          {{ tag }}
+        </router-link>
       </li>
     </ul>
   </section>
