@@ -35,11 +35,11 @@ import Pagination from "@/components/Pagination.vue";
 import truncateString from "@/assets/scripts/truncate-string.js";
 
 export default {
-  pageSize: 12,
+  pageSize: 24,
   props: ["images"],
   data() {
     return {
-      currentPage: 0
+      currentPage: 1
     };
   },
   components: {
@@ -53,14 +53,14 @@ export default {
       const { images } = this;
       const { pageSize } = this.$options;
 
-      return images.length > 1 ? Math.floor((images.length - 1) / pageSize) : 0;
+      return images.length > 1 ? Math.ceil(images.length / pageSize) : 1;
     },
     imagesGallery() {
       const { images, currentPage } = this;
       const { pageSize } = this.$options;
 
       // Starting/ending images
-      const startImage = currentPage * pageSize;
+      const startImage = (currentPage - 1) * pageSize;
 
       // Return mapped images
       return images
@@ -77,7 +77,7 @@ export default {
       const { currentPage } = this;
 
       // Update current page
-      this.currentPage = Math.max(currentPage - 1, 0);
+      this.currentPage = Math.max(currentPage - 1, 1);
 
       // Scroll back to top
       this.scrollUp();

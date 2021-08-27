@@ -2,13 +2,13 @@
   <div class="pagination">
     <button
       class="pagination__button pagination__button--previous"
-      :disabled="current === 0"
+      :disabled="current === 1"
       @click.prevent="goPrevious"
     >
       &larr;
     </button>
 
-    <p class="pagination__number">Page {{ current + 1 }} of {{ max + 1 }}</p>
+    <p class="pagination__number">Page {{ current  }} of {{ max  }}</p>
 
     <button
       class="pagination__button pagination__button--next"
@@ -27,12 +27,12 @@ export default {
     goPrevious() {
       const { current } = this;
 
-      this.$emit("previous-page", Math.max(current - 1, 0));
+      this.$emit("previous-page", Math.max(current - 1, 1));
     },
     goNext() {
       const { max, current } = this;
 
-      this.$emit("next-page", Math.min(current + 1, max - 1));
+      this.$emit("next-page", Math.min(current + 1, max));
     }
   }
 };
