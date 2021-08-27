@@ -1,20 +1,28 @@
 <template>
   <form class="search" @submit.prevent="searchImages">
-    <input type="search" placeholder="Search" ref="searchInput" class="search__input" />
+    <input type="search" placeholder="Search" ref="searchInput" class="search__input" list="tags" />
     <button class="[ search__button ] [ button ]" aria-label="Search">
       <SvgIcon name="search" title="Search" class="search__button__icon" />
     </button>
+
+    <datalist id="tags">
+      <option v-for="tag of tags" :key="tag" :value="tag"/>
+    </datalist>
   </form>
 </template>
 
 <script>
 import SvgIcon from "@/components/SvgIcon.vue";
+import { mapState } from "vuex";
 
 export default {
   name: "SearchForm",
   components: {
     SvgIcon
   },
+  computed: mapState({
+    tags: state => state.tags
+  }),
   methods: {
     searchImages() {
       const { searchInput } = this.$refs;
