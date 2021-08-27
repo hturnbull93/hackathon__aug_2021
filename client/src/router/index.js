@@ -37,6 +37,15 @@ const routes = [
     component: () => import("@/views/Search.vue")
   },
   {
+    path: "/user",
+    redirect: "/"
+  },
+  {
+    path: "/user/:query",
+    name: "User",
+    component: () => import("@/views/Search.vue")
+  },
+  {
     path: "/authenticate",
     name: "Edit Image",
     component: () => import("@/views/Authenticate.vue")

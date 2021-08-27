@@ -38,17 +38,17 @@
         <li class="menu__dropdown__listitem menu__dropdown__listitem--border">
           <router-link
             class="menu-button"
-            :to="`/search/${user}/`"
+            :to="`/user/${user}/`"
             title="View your images"
           >
             Your images
           </router-link>
         </li>
-        <li class="menu__dropdown__listitem menu__dropdown__listitem--border">
-          <router-link class="menu-button" to="/search/" title="Search images">
+        <!-- <li class="menu__dropdown__listitem menu__dropdown__listitem--border">
+          <router-link class="menu-button" :to="`/favourites/${favourites}/`" title="Your favourited images">
             Favourites
           </router-link>
-        </li>
+        </li> -->
         <li class="menu__dropdown__listitem menu__dropdown__listitem--border">
           <router-link class="menu-button" to="/logout/" title="Log out">Log out</router-link>
         </li>
