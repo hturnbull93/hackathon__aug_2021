@@ -49,6 +49,10 @@ export default {
     border: 0;
     box-shadow: 0 5px 25px -8px var(--box-shadow-100),
       0 3px 5px -4px var(--box-shadow-100);
+
+    @media (min-width: 768px) {
+      padding: var(--size-100) var(--size-125);
+    }
   }
 
   &__button {
@@ -62,6 +66,10 @@ export default {
     background: transparent;
     color: var(--grey-300);
     cursor: pointer;
+
+    @media (min-width: 768px) {
+      padding: 0 var(--size-100);
+    }
 
     &:hover {
       background: transparent;
