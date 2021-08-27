@@ -1,7 +1,7 @@
 <template>
   <section class="page page--search">
     <SearchForm @search-images="searchImages" /> 
-    <Gallery :images="filteredImages" />
+    <Gallery :loading="loading" :images="filteredImages" />
   </section>
 </template>
 
