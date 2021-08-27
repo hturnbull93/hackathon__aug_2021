@@ -25,17 +25,11 @@ export default {
       const { images } = this;
       const { search } = this.$route.params;
 
-      console.log("Search by", search);
-
       // If no search params, return all images
       if (!search) return images;
 
       // Else filter
-      return images.filter(img => {
-        // Perform filter here
-
-        return img;
-      });
+      return images.filter(img => img.tags.includes(search));
     }
   },
   methods: {
