@@ -29,6 +29,25 @@
   --size-300: 3rem;
 
   // Shadows
-  --box-shadow-100: #{rgba(#18083b, 0.1)};
-  --box-shadow-200: #{rgba(#18083b, 0.15)};
+  --box-shadow-100: #{rgba(#0b021d, 0.1)};
+  --box-shadow-200: #{rgba(#0b021d, 0.15)};
+
+  @media (prefers-color-scheme: dark) {
+    // Backgrounds
+    --white-100: #000;
+    --white-200: #1d2029;
+
+    // Grey
+    --grey-100: #3c3d4e;
+    --grey-200: #58596e;
+    --grey-300: #7d7e91;
+    --grey-400: #a1a2b3;
+    --grey-500: #d6d7e0;
+    --grey-600: #fff;
+
+    // Colours
+    --primary-100: #9492ef;
+    --primary-200: #1713f5;
+    --primary-300: #1b19bb;
+  }
 }

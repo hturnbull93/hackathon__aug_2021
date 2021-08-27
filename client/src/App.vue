@@ -58,6 +58,10 @@ export default {
     @supports (backdrop-filter: blur(15px)) {
       background: transparent;
       backdrop-filter: blur(15px) brightness(110%);
+
+      @media (prefers-color-scheme: dark) {
+        backdrop-filter: blur(15px) brightness(70%);
+      }
     }
   }
 

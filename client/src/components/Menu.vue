@@ -170,6 +170,10 @@ $menu-link-speed: 0.3s cubic-bezier(0, 0.86, 0.46, 0.93);
     z-index: 3;
     animation: fadeMenuDown $menu-link-speed;
 
+    @media (prefers-color-scheme: dark) {
+      background: var(--white-200);
+    }
+
     &::after {
       content: "";
       position: absolute;
@@ -181,6 +185,10 @@ $menu-link-speed: 0.3s cubic-bezier(0, 0.86, 0.46, 0.93);
       top: 0;
       right: 0;
       transform: rotate(45deg) translate(-16px, 8px);
+
+      @media (prefers-color-scheme: dark) {
+        background: var(--white-200);
+      }
     }
 
     &[hidden] {

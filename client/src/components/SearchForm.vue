@@ -50,6 +50,10 @@ export default {
     box-shadow: 0 5px 25px -8px var(--box-shadow-100),
       0 3px 5px -4px var(--box-shadow-100);
 
+    @media (prefers-color-scheme: dark) {
+      background: var(--white-200);
+    }
+
     @media (min-width: 768px) {
       padding: var(--size-100) var(--size-125);
     }
