@@ -47,7 +47,8 @@ export default {
     padding-right: var(--size-300);
     background: var(--white-100);
     border: 0;
-    box-shadow: 0 5px 20px -8px rgba(black, 0.1);
+    box-shadow: 0 5px 25px -8px var(--box-shadow-100),
+      0 3px 5px -4px var(--box-shadow-100);
   }
 
   &__button {

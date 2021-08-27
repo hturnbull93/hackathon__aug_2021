@@ -101,30 +101,72 @@ export default {
 <style lang="scss">
 .image-gallery {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: var(--size-75);
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-flow: row dense;
+  grid-gap: var(--size-25);
 
   @media (min-width: 400px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  @media (min-width: 550px) {
     grid-template-columns: repeat(4, 1fr);
   }
 
-  @media (min-width: 700px) {
+  @media (min-width: 550px) {
     grid-template-columns: repeat(5, 1fr);
+  }
+
+  @media (min-width: 700px) {
+    grid-template-columns: repeat(6, 1fr);
   }
 
   &__link {
     display: block;
     transition: box-shadow 0.15s, transform 0.15s;
-    border-radius: var(--size-50);
     overflow: hidden;
+    border-radius: var(--size-50);
+
+    @media (max-width: 399px) {
+      &:nth-child(5n - 3) {
+        grid-row: span 2;
+        grid-column: span 2;
+      }
+    }
+
+    @media (min-width: 400px) and (max-width: 549px) {
+      &:nth-child(1),
+      &:nth-child(7),
+      &:nth-child(17),
+      &:nth-child(18) {
+        grid-row: span 2;
+        grid-column: span 2;
+      }
+    }
+
+    @media (min-width: 550px) and (max-width: 699px) {
+      &:nth-child(1),
+      &:nth-child(6),
+      &:nth-child(10),
+      &:nth-child(16) {
+        grid-row: span 2;
+        grid-column: span 2;
+      }
+      &:nth-child(13) {
+        grid-row: span 3;
+        grid-column: span 3;
+      }
+    }
+
+    @media (min-width: 700px) {
+      &:nth-child(1),
+      &:nth-child(8),
+      &:nth-child(10),
+      &:nth-child(13) {
+        grid-row: span 2;
+        grid-column: span 2;
+      }
+    }
 
     &:hover {
       transform: scale(1.05);
-      box-shadow: 0 5px 20px -5px rgba(black, 0.15);
+      box-shadow: 0 5px 20px -5px var(--box-shadow-200);
     }
   }
 

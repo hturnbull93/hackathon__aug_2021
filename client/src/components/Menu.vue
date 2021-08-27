@@ -121,7 +121,7 @@ $menu-link-speed: 0.3s cubic-bezier(0, 0.86, 0.46, 0.93);
       left: 8px;
       width: 22px;
       height: 3px;
-      background: var(--grey-400);
+      background: var(--grey-600);
       border-radius: 2px;
       top: 50%;
       transition: opacity $menu-burger-speed, transform $menu-burger-speed,
@@ -166,7 +166,7 @@ $menu-link-speed: 0.3s cubic-bezier(0, 0.86, 0.46, 0.93);
     background: var(--white-100);
     padding: var(--size-75) var(--size-75) var(--size-25);
     border-radius: var(--size-75);
-    box-shadow: 0 10px 40px -5px rgba(black, 0.15);
+    box-shadow: 0 10px 40px -5px var(--box-shadow-200);
     z-index: 3;
     animation: fadeMenuDown $menu-link-speed;
 

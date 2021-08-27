@@ -6,7 +6,9 @@ html {
 }
 
 body {
-  background: var(--white-200);
+  background: linear-gradient(to bottom, var(--white-100), var(--white-200));
+  background-attachment: fixed;
+  min-height: 100vh;
   color: var(--grey-600);
   padding: 0;
   margin: 0;
