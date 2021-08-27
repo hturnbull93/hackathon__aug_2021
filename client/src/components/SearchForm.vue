@@ -56,6 +56,7 @@ export default {
 
     @media (min-width: 768px) {
       padding: var(--size-100) var(--size-125);
+      padding-right: var(--size-300);
     }
   }
 
