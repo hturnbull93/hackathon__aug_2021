@@ -22,11 +22,15 @@ import Menu from "@/components/Menu.vue";
 export default {
   name: "App",
   components: {
-    Menu
+    Menu,
   },
   mounted() {
     this.$store.dispatch("updateImages");
-  }
+
+    // setInterval(() => {
+    //   this.$store.dispatch("updateImages");
+    // }, 10000);
+  },
 };
 </script>
 

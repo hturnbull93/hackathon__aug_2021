@@ -22,6 +22,7 @@ class ComposerStaticInit5d3e8fb5f2b4396fb50cd8628573aeca
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'TeamSix\\Handler\\UploadRequest' => __DIR__ . '/../..' . '/TeamSix/Handler/UploadRequest.php',
         'TeamSix\\Helper\\Generator\\FilenameGenerator' => __DIR__ . '/../..' . '/TeamSix/Helper/Generator/FilenameGenerator.php',
         'TeamSix\\Helper\\Response' => __DIR__ . '/../..' . '/TeamSix/Helper/Response.php',
     );

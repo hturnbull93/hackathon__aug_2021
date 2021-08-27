@@ -21,14 +21,20 @@ if ($image) {
     //move_uploaded_file($_FILES['file']['tmp_name'], "../data/" . $filename);
     file_put_contents("../data/" . $filename . '.jpg', $_REQUEST['file']);
 
-    //storing metadata for image 
-    file_put_contents("../data/" . $filename . ".json", json_encode([
+    // Create new image object
+    $imageData = json_encode([
       'imageId' => $filename,
       'src' => '/api/data/' . $filename . '.jpg',
       'alt' => $_REQUEST['description'],
       'user' => $_REQUEST['user'],
       'tags' => $_REQUEST['tags'],
-    ]));
+    ]);
+
+    //storing metadata for image 
+    file_put_contents("../data/" . $filename . ".json", $imageData);
+
+    // Append new image, to save to local store
+    $response['imageData'] = $imageData;
 } else {
     $response['success'] = false;
 }

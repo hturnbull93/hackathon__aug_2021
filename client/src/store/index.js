@@ -16,6 +16,10 @@ export default createStore({
     UPDATE_CONTENT(state, { tags = [], images = [] }) {
       state.images = images;
       state.tags = tags;
+    },
+    APPEND_CONTENT(state, { tags = [], images = [] }) {
+      state.images.unshift(images);
+      state.tags.unshift(tags);
     }
   },
   actions: {
@@ -30,6 +34,9 @@ export default createStore({
           commit("UPDATE_CONTENT", { tags, images });
         })
         .catch(e => console.error(e));
+    },
+    addLocalImage({ commit }, newImage = {}) {
+      commit("APPEND_CONTENT", newImage);
     }
   }
 });
