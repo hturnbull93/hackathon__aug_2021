@@ -23,13 +23,19 @@ export default {
     }),
     filteredImages() {
       const { images } = this;
-      const { search } = this.$route.params;
+      const { query } = this.$route.params;
 
       // If no search params, return all images
-      if (!search) return images;
+      if (!query) return images;
 
       // Else filter
-      return images.filter(img => img.tags.includes(search));
+      return images.filter(
+        ({ tags }) =>
+          !tags.localeCompare(query, undefined, {
+            ignorePunctuation: true,
+            sensitivity: "base"
+          })
+      );
     }
   },
   methods: {
